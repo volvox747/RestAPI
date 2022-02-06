@@ -1,14 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
+require('dotenv/config');
+
 const app = express();
 
 
 //^ Connecting to MongoDB database using "MongoDB Atlas" 
 mongoose
-  .connect(
-    "mongodb+srv://volvox747:Bensoncr7@rest.rp0gv.mongodb.net/restapi?retryWrites=true&w=majority"
-  )
+//^ URI is the referrence of the database connection link 
+//% URI ref is connect using "process.env"(NodeJS.process) 
+  .connect(process.env.URI)
   .then(() => {
     console.log("Hurray!! Connection Successfull.");
   })
