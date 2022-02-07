@@ -1,9 +1,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const { post } = require("../routes/post");
+const app = express();
 
+//^ Code which allows to access .env file in app.js file 
 require('dotenv/config');
 
-const app = express();
+
+//^ Using Middleware for route-""
+
+app.use('/',post)
 
 
 //^ Connecting to MongoDB database using "MongoDB Atlas" 
@@ -20,8 +26,8 @@ mongoose
 
 
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
+app.get("/posts", (req, res) => {
+  res.send("Hello I from main app");
 });
 
 //^ This is how you connect express
