@@ -1,5 +1,4 @@
 const express=require('express');
-const Post = require('../models/post');
 const router=express.Router();
 
 
@@ -28,12 +27,12 @@ router.get('/posts',async (req,res)=>{
 
 router.post('/post',(req,res)=>{
     //^ Inserting a data to the database
-    const Post=new Post({
+    const post=new Post({
         title:req.body.title,
         description:req.body.description
     });
 
-    Post.save().
+    post.save().
     then((result) => {
         res.json(result);
     }).
