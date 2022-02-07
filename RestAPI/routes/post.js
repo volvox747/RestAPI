@@ -1,18 +1,37 @@
 const express=require('express');
+const Post = require('../models/post');
 const router=express.Router();
 
-//^ Importing and Using 'body-parser.json' as middleware 
-const bodyParser=require('body-parser');
 
 //^ importing post schema from models folder 
 const Post=require('../models/post');
 
+
+
+//@ Get all posts 
+// router.get('/posts',async (req,res)=>{
+//     const posts=await Post.find();
+
+// })
+
+
+//@ Submit a post
+
 router.post('/posts',(req,res)=>{
-    console.log(req.body);
+    //^ Inserting a data to the database
+    const Post=new Post({
+        title:req.body.title,
+        description:req.body.description
+    });
+
+    Post.save().
+    then((result) => {
+        res.json(result);
+    }).
+    catch((err) => {
+        res.statusCode
+    });
 })
 
-router.get('/posts',(req,res)=>{
-    res.send("Holla!! I am on posts");
-})
 
 module.exports=router;
