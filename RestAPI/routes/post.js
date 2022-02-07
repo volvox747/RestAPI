@@ -1,5 +1,4 @@
 const express=require('express');
-const Post = require('../models/post');
 const router=express.Router();
 
 
@@ -24,16 +23,16 @@ router.get('/posts',async (req,res)=>{
 })
 
 
-//@ Submit a post
+//@ Create a post
 
 router.post('/post',(req,res)=>{
     //^ Inserting a data to the database
-    const Post=new Post({
+    const post=new Post({
         title:req.body.title,
         description:req.body.description
     });
 
-    Post.save().
+    post.save().
     then((result) => {
         res.json(result);
     }).
@@ -43,20 +42,54 @@ router.post('/post',(req,res)=>{
 })
 
 
-//@ Get a specific post
+//@ Read a specific post
 
 router.get('/:postId',async (req,res)=>{
     try{
       //^ Destructuring id from the object req.param
       //^ Find the specific data using the destructured id   
       const { postId } = req.params;
-      const post = Post.findById(postId);
-      res.json(postId);
+      const post = await Post.findById(postId);
+      res.json(post);
     }
     catch(err){
         res.send(res.statusMessage, res.statusCode);
     }
 })
+
+
+//@ Update a specific post
+
+router.put('/:postId',async (req,res)=>{
+    try{
+        const {postId} =req.params;
+        const updatePost=await Post.findByIdAndUpdate(postId,{title:req.body.title});
+        res.json(updatePost);
+    }
+    catch(err)
+    {
+        res.send(res.statusMessage,res.statusCode);
+    }
+})
+
+
+
+//@ Delete a specific data from the database
+
+router.delete("/:postId", async (req, res) => {
+  try {
+    //^ Destructuring id from the object req.param
+    //^ Delete the specific data using the destructured id
+    const { postId } = req.params;
+    const post = await Post.findByIdAndDelete(postId)
+    res.json(post);
+  } catch (err) {
+    res.send(res.statusMessage, res.statusCode);
+  }
+});
+
+
+ 
 
 
 module.exports=router;
