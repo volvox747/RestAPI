@@ -59,4 +59,19 @@ router.get('/:postId',async (req,res)=>{
 })
 
 
+//@ Delete a specific data from the database
+
+router.delete("/:postId", async (req, res) => {
+  try {
+    //^ Destructuring id from the object req.param
+    //^ Delete the specific data using the destructured id
+    const { postId } = req.params;
+    const post = Post.findByIdAndDelete(postId)
+    res.json(postId);
+  } catch (err) {
+    res.send(res.statusMessage, res.statusCode);
+  }
+});
+
+
 module.exports=router;
