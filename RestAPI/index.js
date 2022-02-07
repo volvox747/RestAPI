@@ -14,7 +14,7 @@ require('dotenv/config');
 const post=require('./routes/post');
 
 //^ Using Middleware for route-"posts"
-app.use('/',post);
+app.use('/posts',post);
 
 
 //% Note:

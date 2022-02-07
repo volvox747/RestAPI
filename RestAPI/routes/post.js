@@ -26,7 +26,7 @@ router.get('/posts',async (req,res)=>{
 
 //@ Submit a post
 
-router.post('/posts',(req,res)=>{
+router.post('/post',(req,res)=>{
     //^ Inserting a data to the database
     const Post=new Post({
         title:req.body.title,
@@ -38,8 +38,24 @@ router.post('/posts',(req,res)=>{
         res.json(result);
     }).
     catch((err) => {
-        res.statusCode
+        res.send(res.statusMessage, res.statusCode);
     });
+})
+
+
+//@ Get a specific post
+
+router.get('/:postId',async (req,res)=>{
+    try{
+      //^ Destructuring id from the object req.param
+      //^ Find the specific data using the destructured id   
+      const { postId } = req.params;
+      const post = Post.findById(postId);
+      res.json(postId);
+    }
+    catch(err){
+        res.send(res.statusMessage, res.statusCode);
+    }
 })
 
 
