@@ -1,15 +1,40 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const { post } = require("../routes/post");
 const app = express();
 
 //^ Code which allows to access .env file in app.js file 
 require('dotenv/config');
 
+//^ importing post file of routes folder to app.js
 
-//^ Using Middleware for route-""
+const post=require('./routes/post');
 
-app.use('/',post)
+//^ Using Middleware for route-"posts"
+app.use('/',post);
+
+
+//% Note:
+//^     If routes is'nt imported below code gets executed, 
+//^     If routes files is imported and also contains the same route(i.e. "/posts") then the priority goes to the router files 
+
+app.get("/posts", (req, res) => {
+  res.send("Hello I from main app");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //^ Connecting to MongoDB database using "MongoDB Atlas" 
@@ -26,9 +51,6 @@ mongoose
 
 
 
-app.get("/posts", (req, res) => {
-  res.send("Hello I from main app");
-});
 
 //^ This is how you connect express
 app.listen(8080, () => {
