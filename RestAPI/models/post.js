@@ -3,11 +3,22 @@
 const mongoose=require('mongoose');
 
 //^ creating Schema 
-const Post=mongoose.Schema({
+const postSchema=mongoose.Schema({
     title:{
         type:String,
         required:true
     },
-    description:
+    description:{
+        type:String,
+        required:true
+    },
+    date:{
+        type:Date,
+        default:Date.now
+    }
 })
+
+//^ exporting posts
+
+module.exports=postSchema;
 
