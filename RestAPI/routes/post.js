@@ -9,10 +9,19 @@ const Post=require('../models/post');
 
 
 //@ Get all posts 
-// router.get('/posts',async (req,res)=>{
-//     const posts=await Post.find();
 
-// })
+router.get('/posts',async (req,res)=>{
+    try
+    {
+    const posts=await Post.find();
+    //^ Returning the results in json format 
+    res.json(posts);
+    }
+    catch(err)
+    {
+        res.send(res.statusMessage,res.statusCode);
+    }
+})
 
 
 //@ Submit a post
