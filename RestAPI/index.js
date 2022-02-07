@@ -1,10 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-
+const cors=require('cors');
 //^ Importing and Using 'body-parser.json' as middleware 
 const bodyParser=require('body-parser');
 app.use(bodyParser.json());
+
+//^ using cors as a middleware
+app.use(cors());
+
 
 //^ Code which allows to access .env file in app.js file 
 require('dotenv/config');
