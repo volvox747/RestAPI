@@ -18,7 +18,11 @@ const postSchema=mongoose.Schema({
     }
 })
 
-//^ exporting posts
+//^ Creating the "Post" ,model using postSchema
 
-module.exports=postSchema;
+const Post=mongoose.model('Post',postSchema);
+
+//^ exporting "Post" model
+
+module.exports=Post;
 
