@@ -15,11 +15,12 @@ app.use('/',post);
 
 //% Note:
 //^     If routes is'nt imported below code gets executed, 
-//^     If routes files is imported and also contains the same route(i.e. "/posts") then the priority goes to the router files 
+//^     If routes files is imported(as done above) and also contains the same route(i.e. "/posts"),
+//^       then the priority goes to the router files. 
 
-app.get("/posts", (req, res) => {
-  res.send("Hello I from main app");
-});
+// app.get("/posts", (req, res) => {
+//   res.send("Hello I from main app");
+// });
 
 
 
