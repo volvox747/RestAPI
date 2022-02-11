@@ -29,6 +29,8 @@ Here the person ordering the food, you are the client. The waiter is the API, th
 <img class="image" width=700 height=350 src="https://github.com/volvox747/RestAPI/blob/test/what-is-an-api%20(1).jpg" alt="What is an API">
 
 
+
+
 ## Types of API Architecture
 
 An API architecture consists of rules that guide what information can be send to the client and how it shares the data. REST, SOAP, and RPC are the most popular API architectures in use today.
@@ -47,4 +49,29 @@ For this reason, SOAP is often implemented for internal data transfers that requ
 The RPC (Remote Procedural Call) protocol is the most straightforward of the three architectures.They execute scripts on a server.RPC uses either JSON or XML.RPC APIs are limited in their security and capabilities, so you likely won’t see them as often as REST or SOAP APIs on the web
 
 
+
+
+
+
+## What is REST API?
+
+REST API is one of the popular types of API which is used in daily development these days which follow "REST" architecture.REST stands for REpresentational State Transfer.
+This means that when a client requests for a resource the requested data should be responded in a standard/common manner so that the end users(i.e Clients) can interpret easily.
+Clients can also modify items on the server and even add new items to the server through a REST API.
+
+
+
+<i><strong>What does Representational state mean?</strong></i>
+
+Consider a social media platform that you use daily, lets say Instagram. On Instagram, you post pictures, videos or a story, and you also comment, like and share on your friend's posts.
+
+So let’s now dive a layer deep into the working of the Instagram. The photo, the location, the caption, and others that you share as a post are known as a resource. These resources are stored on the server. So, when you open Instagram and scroll through your feed, you are requesting to the server for these resources. The server receiving the request will not just share a copy of the resource back to you. You can ask why the server can't send the copy of the data/resource that is stored in it.
+
+Just for a second, think that the photos & videos that you share on Insagram as posts is stored in <b>JSON</b>(JavaScript Object Notation) format and the servers respond to the request with the same <b>JSON</b> format.In the case of an Instagram post, there will be likes and comments; and likes are a pretty big thing on a platform with professional influencers, Right? So what would it take for someone to just change the like count of a post to 1 million and sent the updated resource back to the server. This should not be allowed, Right?
+
+This totally spoils the integrity of the platform. So in order to avoid these unnecessary troubles, we share only the representation state of the resource, that is, the photos and videos you post, likes and comments will be stored in some other format which might be not in human readable form,but when requested sends the data in form of JSON or any other format which the client requires.  
+
+ 
+
+This totally spoils the integrity of the platform. So in order to avoid these unnecessary troubles, we share only the representation state of the resource.
 
