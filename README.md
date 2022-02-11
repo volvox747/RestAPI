@@ -12,7 +12,6 @@ REST API is a common type of API which follows <b>REST</b> guidelines that allow
 - [REST vs SOAP](#rest-vs-soap)
 - [Why use REST APIs?](#why-use-rest-apis)
 - [Conclusion](#conclusion)
-- [Thanks](#thanks)
 
 
 
