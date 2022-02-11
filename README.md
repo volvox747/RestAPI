@@ -75,3 +75,35 @@ This totally spoils the integrity of the platform. So in order to avoid these un
 
 This totally spoils the integrity of the platform. So in order to avoid these unnecessary troubles, we share only the representation state of the resource.
 
+
+
+## Six Design Principles of REST API
+
+There are 6 design principles, 5 mandatory and 1 optional, that an API should satisfy in order to qualify as a REST API. These Principles
+
+- ### Client Server Decoupling
+
+This principle states that the client and the server components should be isolated from each other. The client should not be able to modify anything on the server-side. The server should not be able to modify anything on the client side. The interaction between the client and the server should always be via the API.
+
+Okay, let’s try to understand the above-mentioned point using a simple experience that we all experience in our everyday life. We all use the Facebook app, so let’s take it as an example. Has this ever happened to you, you like or comment on your friend’s profile but due to maybe internet issues, the like or comment may not have reflected on your friend’s mobile, but the like or comment would still be visible in your mobile app.
+
+The thing that is happening here is, the Facebook app we have on our mobile is the client, it fetches the data from the Facebook server and presents it to us. When you like or comment on something, it gets first updated locally on your mobile device and is also shared with the server. But owing to network issues, the data may not have been updated in the server. So when your friend uses Facebook on his mobile, he is fetching from the Facebook server, which at the moment has not updated your action, say like or comment. This is one typical example of client-server decoupling, that we come across in our daily life.
+
+- ### Statelessness
+
+All calls with a REST API must be stateless. This means that every interaction between the client and server is independent, and each request and response provides all the information required to complete the interaction. Every request by the client is interpreted by the server as a brand new request — the server remembers nothing about past requests.This may lead to a question as, “If the server has no information of me stored, then how does it identify me?”
+
+You are not logging on into your GitHub account every time you use it. You might have logged on to it some time back and unless you log out of your account, you will not be asked to sign back in. And every time you visit Github.com, you are greeted with your activity page. So how does this happens, how does the server know that you are the one accessing the Github page, and not me?
+
+Once you log in to your Github account for the first time on your PC/laptop/mobile browser, you are telling the server that “I am the person who owns this account”. Now a session has been established. Every action you ever make, from now on will be associated with the account that has been logged on some moments ago with that exact same browser, on that exact same PC/laptop/mobile.
+
+The time period during which the server recognizes you with your account without asking for your credentials again is called sessions. A session ends when you log out of your account, or until you reset the browser. I totally hear the question pounding inside your head “But, If REST APIs are completely stateless and are not allowed to store any information on the server side, then how can they identify myself to my account? How are these so-called “sessions” are being handled?”
+
+When the server responds to your first login attempt, it will gather every information that might ever need to identify this computer and this browser, and send them back to the client along with your Facebook feed. These so-called “collection of information necessary to identify the user again” is called a cookie.
+
+![image](https://user-images.githubusercontent.com/52985692/153644218-2229bd8a-4f9d-4648-b55c-8e5251899980.png)
+
+
+Remember the annoying popups that you encounter whenever you open a new page, hope you understood the purpose of that.
+
+Stateless transfers greatly reduce the amount of server memory needed and improve the odds of a successful response, since the server is not required to take additional action to retrieve old data. This ensures that these interactions are scalable: As software grows and makes more requests, developers don’t need to worry about significantly more memory being used, or overloading the server with requests.
