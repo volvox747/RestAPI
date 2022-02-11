@@ -9,9 +9,8 @@ REST API is a common type of API which follows <b>REST</b> guidelines that allow
 - [Types of API Architecture](#types-of-api-architecture)
 - [What is REST API?](#what-is-rest-api)
 - [Six Design Principles of REST API](#six-design-principles-of-rest-api)
+- [REST vs SOAP](#rest-vs-soap)
 - [Why use REST APIs?](#why-use-rest-apis)
-- [How REST APIs Work](#how-rest-apis-work)
-- [Popular Apps which use REST API](#popular-apps-which-use-rest-api)
 - [Conclusion](#conclusion)
 - [Thanks](#thanks)
 
@@ -140,5 +139,46 @@ In this case, the URL is also called an endpoint because it is the location wher
 After receiving and validating the request, the host returns information about the target resource. Usually, the information is back sent in a format called JSON, which stands for JavaScript Object Notation. JSON lays out all the contents of a resource in a lightweight format that humans can easily read.
 
 
+
+
+
 - ### Layered System
+
+REST supports layered system architecture. In layered system architecture, we can have many intermediate layers in between the client and the server. Each layer will be responsible for a performing a separate function. These functions can be <b>Authentication, Caching, Load Balancing, Data manipulation</b>, and much more based on the requirements of the application.
+
+For example, consider the scenario of liking a post on Instagram. This action can be broken down into multiple parts, such as authenticating the user, whether he has already liked the post or not, and then increment the like count of the post based on the result from the previous process. One thing to note here is that the order in which these operations are carried out, If you change the order or perform it parallelly it would not make any sense and might break the application.
+
+
+- ### Code on Demand (Optional)
+
+The final REST principle is optional. If desired, an API can send computer code to clients in its response. This empowers the client to run the code in its own backend.This flexibility distinguishes REST APIs from another common web API method, the Simple Object Access Protocol (SOAP).
+
+
+
+
+
+## REST vs SOAP
+
+REST is usually compared to SOAP, another way to build applications that work over HTTP. The main difference between REST and SOAP is that REST is a set of guidelines, and SOAP is a protocol. REST allows for building APIs with any method, including HTTP, URLs, and JSON.There is no rule like video requests must be responded in JSON form,it will too work when responded in XML form,thats why REST is a called as a set of guidelines. 
+
+Whereas SOAP only uses XML for sending data. The data wont be send if it is sended in JSON or some other format other than XML, thats why SOAP is a called a protocol.
+
+
+
+
+## Why use REST APIs?
+
+- <b>REST APIs are flexible.</b> They can handle many types of requests and send data in many different formats.
+- <b>REST APIs are scalable.</b> They are designed for communication between any two pieces of software, regardless of size or capability. As a web application grows and adds more resources, its REST API will be able to quickly handle the increasing amount and variety of requests.
+- <b>REST APIs incorporate existing web technologies</b>, making them relatively easy to build and use. To request a resource via a REST API, you just need to provide its URL.
+
+
+
+## Conclusion
+
+REST APIs will soon be the industry standard for web-based communications. They enable any two online applications to interact and share data, regardless of their sizes or capabilities.
+
+If you’re looking to connect your app to the software world, don’t sleep on REST.
+
+
 
