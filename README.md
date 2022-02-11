@@ -7,9 +7,6 @@ REST API is a common type of API which follows <b>REST</b> guidelines that allow
 
 - [What is an API](#what-is-an-api)
 - [Types of API Architecture](#types-of-api-architecture)
-  - [REST](#rest)
-  - [SOAP](#soap)
-  - [RPC](#rpc)
 - [What is REST API?](#what-is-rest-api?)
 - [Six Design Principles of REST API](#six-design-principles-of-rest-api)
 - [Why use REST APIs?](#why-use-rest-apis?)
