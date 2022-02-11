@@ -104,6 +104,41 @@ When the server responds to your first login attempt, it will gather every infor
 ![image](https://user-images.githubusercontent.com/52985692/153644218-2229bd8a-4f9d-4648-b55c-8e5251899980.png)
 
 
-Remember the annoying popups that you encounter whenever you open a new page, hope you understood the purpose of that.
-
 Stateless transfers greatly reduce the amount of server memory needed and improve the odds of a successful response, since the server is not required to take additional action to retrieve old data. This ensures that these interactions are scalable: As software grows and makes more requests, developers don’t need to worry about significantly more memory being used, or overloading the server with requests.
+
+
+- ### Cacheable
+
+Caching occurs when media is stored on a client’s device when visiting a website. When a client returns to that site, the cached data is loaded quickly from local storage instead of being fetched again from the server.This decreases time latency in page load and alo increases scalability of the server.
+
+REST APIs are created with data caching in mind. When a server sends its response to a client, the response should indicate whether the resource provided can be cached, and for how long.
+
+- ### Uniform Interface
+
+This guideline states that all requests and all responses must follow a common protocol.A uniform interface is a common language for any client to communicate with any REST API
+
+Imagine you are in need of important information, and only one person can give them to you at the moment, but the person only knows 1 language, say Tamil, for example. And you on the other hand don’t know Tamil, then how will you communicate with him/her then? You will find a person who knows both the languages and ask him to be an intermediate and help you have the conversation.
+
+The same is the case with machines, a client may or may not use the same tech stack as the server, and may be built on a different architecture and perform the functions differently than the server. So, essentially they are in need of an intermediate component that can help them understand each other. That is the purpose of having a uniform interface.
+
+The uniform interface lets the client communicate with the server in a single language, independent of the architectural backend of either.For most REST APIs, this common language is HTTP, or Hyper-Text Transfer Protocol. HTTP wasn’t created specifically for REST. Rather, REST adopted this communication protocol as the standard for applications that use it.
+
+To use HTTP with a REST API, the client sends a request in a specific format that might look familiar to you. For example, a request to the YouTube API for video data looks like this:
+
+`GET https://www.googleapis.com/youtube/v3/channels?part=contentDetails`
+
+Like all requests to a REST API, this request contains two pieces of information:
+
+GET is the HTTP method. This specifies the action the client wants to make on the resource. There four basic HTTP requests a client can make are:
+GET: To retrieve a resource.
+POST: To create a new resource.
+PUT: To edit or update an existing resource.
+DELETE: To delete a resource.
+`https://www.googleapis.com/youtube/v3/channels?part=contentDetails` is the URL. The URL contains the uniform resource identifier, or URI, which specifies the target resource. In the URL the URI part is `channels?part=contentDetails`
+In this case, the URL is also called an endpoint because it is the location where the API actually interacts with the client.
+
+After receiving and validating the request, the host returns information about the target resource. Usually, the information is back sent in a format called JSON, which stands for JavaScript Object Notation. JSON lays out all the contents of a resource in a lightweight format that humans can easily read.
+
+
+- ### Layered System
+
